@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 
 function App() {
   const [length , setLength] = useState(8)
@@ -6,6 +6,8 @@ function App() {
   const [char , setChar] = useState(false);
   const [password , setPassword] = useState("");
 
+  // Use Ref Hook
+  const passwordRef = useRef(null)
 
   const passGenerator = useCallback(() => {
     let pass = ""
@@ -21,9 +23,14 @@ function App() {
 
     setPassword(pass)
 
-
-
   } , [length , number, char, setPassword])
+
+  const copyPasswordToClipboard = useCallback(() =>{
+    passwordRef.current?.select();
+    // passwordRef.current?.setSelectionRange(0,9) it helps to select ranage of chrarcters
+    window.navigator.clipboard.writeText(password)
+  }, [password])
+
 
   useEffect(() => {
     passGenerator()
@@ -39,9 +46,10 @@ function App() {
       className='outline-none w-full mb-4 py-4 px-3 bg-white '
       placeholder='Enter Password'
       readOnly
+      ref={passwordRef}
       />
 
-      <button className='outline-none bg-blue-700 text-white px-3 py-0.5 mb-4 shrink-0'>Copy</button>
+      <button onClick={copyPasswordToClipboard} className='outline-none bg-blue-700 text-white px-3 py-0.5 mb-4 shrink-0'>Copy</button>
      </div>
 
      <div className='flex text-sm gap-x-2 py-2 '>
