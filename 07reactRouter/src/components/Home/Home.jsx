@@ -29,18 +29,20 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-
+        </aside>
+        
                 <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
                     <img className="w-130" src="https://yellowcherry.uk/wp-content/uploads/2022/05/website-design-animation-scene-2023-11-27-05-26-42-utc1.gif" alt="image1" />
                 </div>
-            </aside>
+            
+    <div className='flex justify-between'>
+         
+                <img className="sm:w-96 rounded-2xl h-full w-max " src="https://darvideo.tv/wp-content/uploads/what-is-web-animation-1.jpg" alt="image2" />
 
-            <div className="grid  place-items-center sm:mt-20">
-                <img className="sm:w-96 w-48" src="https://i.ibb.co/2M7rtLk/Remote1.png" alt="image2" />
-            </div>
 
-            <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Lorem Ipsum Yojo</h1>
-        </div>
+            <h1 className="m-5 py-10 font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae aspernatur asperiores ab sit iusto consequuntur totam pariatur sed? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, asperiores!</h1> 
+
+        </div></div>
     );
 }
 
